@@ -1,6 +1,7 @@
 // src/index.ts
 import express from "express";
 import type { Request, Response } from "express";
+import cors from "cors";
 import { testConnection } from "./config/database";
 import sequelize from "./config/database";
 import taskRoutes from "./routes/task";
@@ -8,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
